@@ -1,7 +1,7 @@
 # elogsene_logger
 
 [![Build Status](https://travis-ci.com/silviucpp/elogsene_logger.svg?branch=main)](https://travis-ci.com/github/silviucpp/elogsene_logger)
-[![GitHub](https://img.shields.io/github/license/silviucpp/elogsene_logger)](https://github.com/silviucpp/elogsene_logger/blob/master/LICENSE)
+[![GitHub](https://img.shields.io/github/license/silviucpp/elogsene_logger)](https://github.com/silviucpp/elogsene_logger/blob/main/LICENSE)
 [![Hex.pm](https://img.shields.io/hexpm/v/elogsene_logger)](https://hex.pm/packages/elogsene_logger)
 
 OTP [logger](1) backend that sends log events to [Sematext Logsene](2).
