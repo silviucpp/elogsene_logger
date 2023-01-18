@@ -1,0 +1,39 @@
+[
+    {elogsene_logger, [
+        {logger,
+            [
+                {handler, sematext_logsene, elogsene_logger, #{
+                    level => info,
+                    config => #{
+                        http_pool_options => [
+                            {timeout, 15000},
+                            {max_connections, 10}
+                        ],
+
+                        logsene => #{
+                            host => <<"https://logsene-receiver.sematext.com">>,
+                            app_token => <<"YOUR_API_TOKEN_HERE">>,
+                            index => <<"YOUR_INDEX_NAME_HERE">>
+                        },
+
+                        upload_batch_max_size => 50,
+                        upload_batch_inteval_ms => 5000,
+                        upload_failed_retry_count => 3,
+                        upload_failed_retry_delay_ms => 1000
+                    },
+                    formatter => {
+                        logger_formatter, #{
+                            single_line => true,
+                            template => [pid, " ", mfa,":",line, " => ", msg],
+                            time_offset => "Z"
+                        }
+                    },
+                    filters => [
+                        %{remote_group_leader, {fun logger_filters:remote_gl/2, stop}},
+                        %{progress, {fun logger_filters:progress/2, stop}},
+                        %{sasl, {fun logger_filters:domain/2, {stop, sub, [otp, sasl]}}}
+                    ]
+                }}
+            ]}
+    ]}
+].

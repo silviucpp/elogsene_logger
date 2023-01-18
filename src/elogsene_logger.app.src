@@ -1,0 +1,25 @@
+{application, elogsene_logger, [
+    {description, "OTP logger backend that sends log events to Sematext Logsene."},
+    {vsn, "1.0.0"},
+    {licenses, ["MIT"]},
+    {links,[{"Github","https://github.com/silviucpp/elogsene_logger"}]},
+    {registered, []},
+    {mod, {elogsene_logger_app, []}},
+    {applications, [
+        kernel,
+        stdlib,
+        jiffy,
+        hackney
+    ]},
+    {env,[]},
+    {modules, []},
+    {files, [
+        "LICENSE*",
+        "*.MD",
+        "sys.config.example",
+        "rebar.config",
+        "rebar.lock",
+        "src/*.erl",
+        "src/*.src"
+    ]}
+ ]}.
