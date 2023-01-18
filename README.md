@@ -4,7 +4,7 @@
 [![GitHub](https://img.shields.io/github/license/silviucpp/elogsene_logger)](https://github.com/silviucpp/elogsene_logger/blob/main/LICENSE)
 [![Hex.pm](https://img.shields.io/hexpm/v/elogsene_logger)](https://hex.pm/packages/elogsene_logger)
 
-OTP [logger](1) backend that sends log events to [Sematext Logsene](2).
+OTP [logger][1] backend that sends log events to [Sematext Logsene][2].
 
 ## Quick start
 
@@ -71,7 +71,7 @@ because `sys.config` is applied at `kernel` application start time and `elogsene
 
 | Property               | Mandatory |    Description |
 | --------------------- | :-----: | -------------- |
-| http_pool_options      |        | [hackney](3) pool config. |
+| http_pool_options      |        | [hackney][3] pool config. |
 | logsene                | Y      | A map with 3 keys: `host` - logsene host, `app_token` - your application token, `index` - the index name.|
 | upload_batch_max_size |         | *Default: 50*. The events are sent in batches. A batch is sent when is reaching the `upload_batch_max_size` size or a number of `upload_batch_inteval_ms` ms elapsed.|
 | upload_batch_inteval_ms|        | *Default: 5000*. Number of milliseconds we can wait for events to accumulate. A batch is sent when is reaching the `upload_batch_max_size` size or a number of `upload_batch_inteval_ms` ms elapsed.|
@@ -81,6 +81,6 @@ because `sys.config` is applied at `kernel` application start time and `elogsene
 - Beside this custom settings, all other standard `logger:handler_config()` properties are accepted (`level`, `filters`, `formatter`).
 - Multiple instances of `elogsene_logger` handler can be started. 
 
-[1]: https://www.erlang.org/doc/apps/kernel/logger_chapter.html
-[2]: https://sematext.com/logsene/
-[3]: https://github.com/benoitc/hackney
+[1]:https://www.erlang.org/doc/apps/kernel/logger_chapter.html
+[2]:https://sematext.com/logsene/
+[3]:https://github.com/benoitc/hackney
