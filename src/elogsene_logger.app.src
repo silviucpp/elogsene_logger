@@ -1,6 +1,6 @@
 {application, elogsene_logger, [
     {description, "OTP logger backend that sends log events to Sematext Logsene."},
-    {vsn, "1.0.0"},
+    {vsn, "1.0.1"},
     {licenses, ["MIT"]},
     {links,[{"Github","https://github.com/silviucpp/elogsene_logger"}]},
     {registered, []},
