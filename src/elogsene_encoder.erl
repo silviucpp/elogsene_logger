@@ -4,6 +4,9 @@
     encode/5
 ]).
 
+encode(Event, LogseneAppToken, LogseneIndex, _Hostname, _Formatter) when is_binary(Event) ->
+    IndexPayload = generate_index(LogseneAppToken, LogseneIndex, elogsene_utils:sha_hex(Event)),
+    <<IndexPayload/binary, "\n", Event/binary, "\n">>;
 encode(#{level := Level, meta := Meta} = Event, LogseneAppToken, LogseneIndex, Hostname, {FormatterModule, FormatterConfig}) ->
 
     {Module, _Function, _Arity} = maps:get(mfa, Meta, {null, null, null}),
